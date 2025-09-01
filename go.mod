@@ -1,8 +1,9 @@
-module github.com/hashicorp/terraform-provider-scaffolding-framework
+module github.com/optidatacloud/terraform-provider-opticloud
 
 go 1.23.7
 
 require (
+	github.com/apache/cloudstack-go/v2 v2.17.1
 	github.com/hashicorp/terraform-plugin-framework v1.15.1
 	github.com/hashicorp/terraform-plugin-go v0.28.0
 	github.com/hashicorp/terraform-plugin-log v0.9.0
@@ -50,6 +51,7 @@ require (
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/zclconf/go-cty v1.16.3 // indirect
+	go.uber.org/mock v0.5.0 // indirect
 	golang.org/x/crypto v0.39.0 // indirect
 	golang.org/x/mod v0.25.0 // indirect
 	golang.org/x/net v0.40.0 // indirect
