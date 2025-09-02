@@ -66,7 +66,11 @@ func (r *OpticloudVMResource) Configure(_ context.Context, req resource.Configur
 	if req.ProviderData == nil {
 		return
 	}
-	r.client = req.ProviderData.(*OpticloudClient)
+	client, ok := req.ProviderData.(*OpticloudClient)
+	if !ok {
+		return
+	}
+	r.client = client
 }
 
 type VMModel struct {
