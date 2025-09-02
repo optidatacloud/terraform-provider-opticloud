@@ -33,6 +33,9 @@ func (p *OpticloudProvider) Metadata(ctx context.Context, req provider.MetadataR
 
 func (p *OpticloudProvider) Schema(_ context.Context, _ provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
+		Description: `The Opticloud provider is used to configure your Opticloud infrastructure.
+To learn the basics of Terraform using this provider, follow the hands-on get started tutorials.
+The provider needs to be configured with the proper credentials before it can be used using the Opticloud Manager APIs.`,
 		Attributes: map[string]schema.Attribute{
 			"api_url": schema.StringAttribute{
 				Required:    true,

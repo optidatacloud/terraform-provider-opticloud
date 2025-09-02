@@ -25,6 +25,7 @@ func (r *OpticloudVMResource) Metadata(_ context.Context, _ resource.MetadataReq
 
 func (r *OpticloudVMResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
+		Description: "The Opticloud Instance is used to create and configure Opticloud Instances.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				Computed:    true,
