@@ -36,16 +36,16 @@ func (p *OpticloudProvider) Schema(_ context.Context, _ provider.SchemaRequest, 
 		Attributes: map[string]schema.Attribute{
 			"api_url": schema.StringAttribute{
 				Required:    true,
-				Description: "URL do endpoint do proxy Opticloud",
+				Description: "Opticloud API URL",
 			},
 			"api_key": schema.StringAttribute{
 				Required:    true,
-				Description: "API Key para autenticação no proxy",
+				Description: "Opticloud API Key",
 			},
 			"secret_key": schema.StringAttribute{
 				Required:    true,
 				Sensitive:   true,
-				Description: "Secret Key para autenticação no proxy",
+				Description: "Opticloud Secret Key",
 			},
 		},
 	}

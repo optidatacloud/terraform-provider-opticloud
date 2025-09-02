@@ -28,35 +28,35 @@ func (r *OpticloudVMResource) Schema(_ context.Context, _ resource.SchemaRequest
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				Computed:    true,
-				Description: "ID da VM no CloudStack",
+				Description: "Instance ID",
 			},
 			"name": schema.StringAttribute{
 				Required:    true,
-				Description: "Nome da VM",
+				Description: "Instance name",
 			},
 			"service_offering": schema.StringAttribute{
 				Required:    true,
-				Description: "Nome do Service Offering",
+				Description: "Service offering",
 			},
 			"template": schema.StringAttribute{
 				Required:    true,
-				Description: "Nome do Template",
+				Description: "Template name",
 			},
 			"zone": schema.StringAttribute{
 				Required:    true,
-				Description: "Nome da Zona",
+				Description: "Zone name",
 			},
 			"service_offering_id": schema.StringAttribute{
 				Computed:    true,
-				Description: "ID do Service Offering",
+				Description: "Service offering ID",
 			},
 			"template_id": schema.StringAttribute{
 				Computed:    true,
-				Description: "ID do Template",
+				Description: "Template ID",
 			},
 			"zone_id": schema.StringAttribute{
 				Computed:    true,
-				Description: "ID da Zona",
+				Description: "Zone ID",
 			},
 		},
 	}
@@ -91,25 +91,25 @@ func (r *OpticloudVMResource) Create(ctx context.Context, req resource.CreateReq
 
 	zoneID, err := r.client.GetZoneIDByName(plan.Zone.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Zone não encontrada", err.Error())
+		resp.Diagnostics.AddError("Zone not found", err.Error())
 		return
 	}
 
 	templateID, err := r.client.GetTemplateIDByName(plan.Template.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Template não encontrado", err.Error())
+		resp.Diagnostics.AddError("Template not found", err.Error())
 		return
 	}
 
 	serviceOfferingID, err := r.client.GetServiceOfferingIDByName(plan.ServiceOffering.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Service Offering não encontrado", err.Error())
+		resp.Diagnostics.AddError("Service offering not found", err.Error())
 		return
 	}
 
 	vmResp, err := r.client.CreateVM(plan.Name.ValueString(), serviceOfferingID, templateID, zoneID)
 	if err != nil {
-		resp.Diagnostics.AddError("Erro ao criar VM", err.Error())
+		resp.Diagnostics.AddError("Create error", err.Error())
 		return
 	}
 
@@ -138,7 +138,7 @@ func (r *OpticloudVMResource) Read(ctx context.Context, req resource.ReadRequest
 
 	vm, err := r.client.GetVM(state.ID.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Erro ao ler VM '"+state.ID.ValueString()+"'", err.Error())
+		resp.Diagnostics.AddError("Reading error ["+state.ID.ValueString()+"]", err.Error())
 		return
 	}
 
@@ -173,13 +173,13 @@ func (r *OpticloudVMResource) Update(ctx context.Context, req resource.UpdateReq
 
 	_, err := r.client.UpdateVM(originalstate.ID.ValueString(), plan.Name.ValueString(), "")
 	if err != nil {
-		resp.Diagnostics.AddError("Erro ao atualizar VM '"+originalstate.ID.ValueString()+"'", err.Error())
+		resp.Diagnostics.AddError("Update error ["+originalstate.ID.ValueString()+"]", err.Error())
 		return
 	}
 
 	vm, err := r.client.GetVM(originalstate.ID.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Erro ao ler VM '"+originalstate.ID.ValueString()+"'", err.Error())
+		resp.Diagnostics.AddError("Reading error ["+originalstate.ID.ValueString()+"]", err.Error())
 		return
 	}
 
@@ -199,5 +199,5 @@ func (r *OpticloudVMResource) Update(ctx context.Context, req resource.UpdateReq
 }
 
 func (r *OpticloudVMResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
-	resp.Diagnostics.AddError("Não implementado", "Delete não é suportado neste momento.")
+	resp.Diagnostics.AddError("not implemented", "Delete is not supported at this time.")
 }

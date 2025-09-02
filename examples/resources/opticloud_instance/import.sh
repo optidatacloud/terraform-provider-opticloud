@@ -1,0 +1,1 @@
+terraform import opticloud_instance.test "id-123"
