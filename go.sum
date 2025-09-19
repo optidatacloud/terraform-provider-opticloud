@@ -1,5 +1,5 @@
-github.com/apache/cloudstack-go/v2 v2.17.1 h1:XD0bGDOv+MCavXJfc/qxILgJh+cHJbudpqQ1FzA2sDI=
-github.com/apache/cloudstack-go/v2 v2.17.1/go.mod h1:p/YBUwIEkQN6CQxFhw8Ff0wzf1MY0qRRRuGYNbcb1F8=
+github.com/apache/cloudstack-go/v2 v2.17.2 h1:fMqLUTpHZeJoSVQiD2hDBSoqOvGJ9QMoOaWABW8lc/0=
+github.com/apache/cloudstack-go/v2 v2.17.2/go.mod h1:p/YBUwIEkQN6CQxFhw8Ff0wzf1MY0qRRRuGYNbcb1F8=
 github.com/bufbuild/protocompile v0.14.1 h1:iA73zAf/fyljNjQKwYzUHD6AD4R8KMasmwa/FBatYVw=
 github.com/bufbuild/protocompile v0.14.1/go.mod h1:ppVdAIhbr2H8asPk6k4pY7t9zB1OU5DoEw9xY/FUi1c=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
