@@ -3,7 +3,7 @@ module github.com/optidatacloud/terraform-provider-opticloud
 go 1.24.0
 
 require (
-	github.com/apache/cloudstack-go/v2 v2.17.2
+	github.com/apache/cloudstack-go/v2 v2.18.0
 	github.com/hashicorp/terraform-plugin-framework v1.16.0
 )
 
